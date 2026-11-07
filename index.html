@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bear Dino Adventure</title>
+<style>
+:root{--bg:#fff8ee;--card:#ffffff;--text:#2b1d12;--muted:#7a6552;--accent:#e2701f;--accent2:#3f9b4f;--line:#f0dfc8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17110b;--card:#241a11;--text:#f7ead9;--muted:#bba68f;--accent:#ff9040;--accent2:#6fcf7f;--line:#3a2b1c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#17110b;--card:#241a11;--text:#f7ead9;--muted:#bba68f;--accent:#ff9040;--accent2:#6fcf7f;--line:#3a2b1c;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+nav{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:14px 0;font-weight:600}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--accent)}
+.hero{text-align:center;padding:36px 0 28px}
+.hero .emoji{font-size:64px}
+h1{font-size:clamp(2rem,8vw,3.2rem);margin:8px 0;line-height:1.1}
+h1 span{color:var(--accent)}
+.hero p{color:var(--muted);max-width:520px;margin:0 auto 20px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:700;margin:4px}
+.btn.alt{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+section{padding:26px 0}
+h2{font-size:1.5rem;margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card .i{font-size:32px}
+.card h3{margin:6px 0 4px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.spoiler{cursor:pointer;position:relative}
+.spoiler .hidden{filter:blur(7px);transition:filter .25s;user-select:none}
+.spoiler.open .hidden{filter:none;user-select:auto}
+.spoiler .tag{position:absolute;top:10px;right:12px;font-size:.75rem;background:var(--accent2);color:#fff;padding:2px 8px;border-radius:99px}
+.spoiler.open .tag{display:none}
+.hint{color:var(--muted);font-size:.9rem;margin-top:10px}
+.yt{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+footer{text-align:center;color:var(--muted);padding:30px 0 40px;font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a href="#juego">El juego</a><a href="#spoilers">Spoilers</a><a href="#canal">Canal</a></nav>
+
+<header class="hero">
+<div class="emoji">🐻🦖</div>
+<h1>Bear <span>Dino</span> Adventure</h1>
+<p>Un juego de aventuras donde una villa de osos se encuentra con un mundo lleno de dinosaurios. ¡Y lo estoy creando yo!</p>
+<a class="btn" href="#juego">Conoce el juego</a>
+<a class="btn alt" href="#canal">Mi canal</a>
+</header>
+
+<section id="juego">
+<h2>🎮 El juego</h2>
+<div class="grid">
+<div class="card"><div class="i">🏡</div><h3>Villa de osos</h3><p>Explora la villa, conoce a sus habitantes y prepárate para la aventura.</p></div>
+<div class="card"><div class="i">🦕</div><h3>Mundo dino</h3><p>Más allá de la villa te espera un mundo prehistórico lleno de sorpresas.</p></div>
+<div class="card"><div class="i">💬</div><h3>Rueda de emotes</h3><p>Expresa lo que sientes con tu rueda de emotes.</p></div>
+<div class="card"><div class="i">🎁</div><h3>Cofres con emojis</h3><p>Abre cofres y descubre qué emojis esconden.</p></div>
+<div class="card"><div class="i">😴</div><h3>Duerme por inactividad</h3><p>Si te quedas quieto un rato, tu oso se echa a dormir.</p></div>
+</div>
+</section>
+
+<section id="spoilers">
+<h2>🤫 Spoilers</h2>
+<div class="grid">
+<div class="card spoiler"><span class="tag">SPOILER</span><div class="hidden"><div class="i">🗺️</div><h3>Nueva zona</h3><p>Aquí pondré un adelanto de una zona nueva del juego.</p></div></div>
+<div class="card spoiler"><span class="tag">SPOILER</span><div class="hidden"><div class="i">🥚</div><h3>Secreto escondido</h3><p>Aquí revelaré un secreto que aún nadie ha encontrado.</p></div></div>
+<div class="card spoiler"><span class="tag">SPOILER</span><div class="hidden"><div class="i">🎬</div><h3>Próximo vídeo</h3><p>Aquí avisaré del siguiente vídeo con novedades.</p></div></div>
+</div>
+<p class="hint">Toca una tarjeta para revelar el spoiler.</p>
+</section>
+
+<section id="canal">
+<div class="card yt">
+<div class="i">▶️</div>
+<h2 style="margin:0">ItzAlixYT</h2>
+<p style="color:var(--muted);margin:0 0 8px">Spoilers del juego, avances y mucho más en mi canal de YouTube.</p>
+<a class="btn" href="https://www.youtube.com/results?search_query=ItzAlixYT" target="_blank" rel="noopener">Ver el canal</a>
+</div>
+</section>
+
+<footer>Hecho con ❤️ por ItzAlixYT · Bear Dino Adventure</footer>
+</div>
+<script>
+document.querySelectorAll('.spoiler').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('open')})});
+</script>
+</body>
+</html>
