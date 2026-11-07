@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bear Dino Adventure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#fff8ee;--card:#ffffff;--text:#2b1d12;--muted:#7a6552;--accent:#e2701f;--accent2:#3f9b4f;--line:#f0dfc8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17110b;--card:#241a11;--text:#f7ead9;--muted:#bba68f;--accent:#ff9040;--accent2:#6fcf7f;--line:#3a2b1c;color-scheme:dark}}
@@ -12,9 +13,23 @@ html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
 .wrap{max-width:860px;margin:0 auto;padding:0 18px}
-nav{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:14px 0;font-weight:600}
-nav a{color:var(--muted);text-decoration:none}
-nav a:hover{color:var(--accent)}
+.fnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(6,10,24,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid #00e5ff55;box-shadow:0 0 18px #00e5ff33,0 2px 24px #7a3cff22}
+.fnav::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,transparent,#00e5ff,#a23cff,#00e5ff,transparent);background-size:200% 100%;animation:fl 4s linear infinite}
+@keyframes fl{to{background-position:200% 0}}
+.fnav .in{max-width:860px;margin:0 auto;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-family:"Orbitron","Segoe UI",system-ui,sans-serif;font-weight:800;letter-spacing:.14em;font-size:.85rem;color:#e8fbff;text-decoration:none;text-shadow:0 0 10px #00e5ff}
+.logo b{color:#00e5ff}
+.menu{display:flex;gap:4px;align-items:center}
+.menu>a,.dd>button{font-family:"Orbitron","Segoe UI",system-ui,sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#bfefff;text-decoration:none;background:transparent;border:1px solid transparent;border-radius:8px;padding:8px 10px;cursor:pointer;transition:.2s}
+.menu>a:hover,.dd>button:hover,.dd.open>button{color:#fff;border-color:#00e5ff;background:#00e5ff1f;box-shadow:0 0 12px #00e5ff77,inset 0 0 8px #00e5ff33;text-shadow:0 0 8px #00e5ff}
+.dd{position:relative}
+.dd .panel{display:none;position:absolute;right:0;top:calc(100% + 10px);width:min(270px,86vw);background:rgba(6,10,24,.96);border:1px solid #00e5ff88;border-radius:12px;padding:8px;box-shadow:0 0 22px #00e5ff44,0 0 40px #a23cff33}
+.dd.open .panel{display:block}
+.panel a{display:flex;align-items:center;gap:10px;color:#e8fbff;text-decoration:none;padding:10px;border-radius:8px;font-size:.9rem;border:1px solid transparent}
+.panel a:hover{border-color:#a23cff;background:#a23cff22;box-shadow:0 0 10px #a23cff66}
+.panel a small{display:block;color:#7fb7c8;font-size:.72rem}
+.panel .go{margin-left:auto;color:#00e5ff;font-weight:700;font-size:.75rem;letter-spacing:.1em}
+@media (max-width:420px){.logo{display:none}.fnav .in{justify-content:center}}
 .hero{text-align:center;padding:36px 0 28px}
 .hero .emoji{font-size:64px}
 h1{font-size:clamp(2rem,8vw,3.2rem);margin:8px 0;line-height:1.1}
@@ -40,10 +55,23 @@ footer{text-align:center;color:var(--muted);padding:30px 0 40px;font-size:.9rem}
 </style>
 </head>
 <body>
+<div class="fnav"><div class="in">
+<a class="logo" href="#inicio">BEAR<b>/</b>DINO</a>
+<div class="menu">
+<a href="#inicio">Inicio</a>
+<div class="dd" id="dd">
+<button type="button" id="ddb" aria-expanded="false">Juegos ▾</button>
+<div class="panel">
+<a href="super-bear-adventure-3.html"><span style="font-size:1.4rem">🏝️</span><span>Super Bear Adventure 3<small>Villa Oso e Islas celestiales</small></span><span class="go">JUGAR</span></a>
+<a href="Bear_Dino_Adventure_emotes.html"><span style="font-size:1.4rem">🦖</span><span>Bear Dino Adventure<small>Villa de osos y mundo dino</small></span><span class="go">JUGAR</span></a>
+<a href="#juego"><span style="font-size:1.4rem">🎮</span><span>Ver todos los juegos</span></a>
+</div></div>
+<a href="#spoilers">Spoilers</a>
+<a href="#canal">Canal</a>
+</div></div></div>
 <div class="wrap">
-<nav><a href="#juego">Juegos</a><a href="#spoilers">Spoilers</a><a href="#canal">Canal</a></nav>
 
-<header class="hero">
+<header class="hero" id="inicio">
 <div class="emoji">🐻🦖</div>
 <h1>Bear <span>Dino</span> Adventure</h1>
 <p>Un juego de aventuras donde una villa de osos se encuentra con un mundo lleno de dinosaurios. ¡Y lo estoy creando yo!</p>
@@ -74,7 +102,7 @@ footer{text-align:center;color:var(--muted);padding:30px 0 40px;font-size:.9rem}
 <div class="i">▶️</div>
 <h2 style="margin:0">ItzAlixYT</h2>
 <p style="color:var(--muted);margin:0 0 8px">Spoilers del juego, avances y mucho más en mi canal de YouTube.</p>
-<a class="btn" href="https://www.youtube.com/results?search_query=ItzAlixYT" target="_blank" rel="noopener">Ver el canal</a>
+<a class="btn" href="https://www.youtube.com/@AlixYT-q4v" target="_blank" rel="noopener">Ver el canal</a>
 </div>
 </section>
 
@@ -82,6 +110,10 @@ footer{text-align:center;color:var(--muted);padding:30px 0 40px;font-size:.9rem}
 </div>
 <script>
 document.querySelectorAll('.spoiler').forEach(function(c){c.addEventListener('click',function(){c.classList.toggle('open')})});
+var dd=document.getElementById('dd'),ddb=document.getElementById('ddb');
+ddb.addEventListener('click',function(e){e.stopPropagation();var o=dd.classList.toggle('open');ddb.setAttribute('aria-expanded',o)});
+document.addEventListener('click',function(e){if(!dd.contains(e.target)){dd.classList.remove('open');ddb.setAttribute('aria-expanded',false)}});
+dd.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){dd.classList.remove('open')})});
 </script>
 </body>
 </html>
